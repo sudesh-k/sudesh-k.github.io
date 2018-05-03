@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+<head>
+<script>
+function validateForm() {
+
+    var x = document.forms["myform"]["uname"].value;
+ var y = document.forms["myform"]["Pw"].value;
+
+    if (x == "") {
+        alert("Name must be filled out");
+return false;
+    }
+else if (y == ""){
+alert("password must be filled out");
+return false;
+}
+else
+return true;
+}
+function validateEmail()
+{
+email=document.myform.email.value;
+ATpos=email.indexOf("@");
+DOTpos=email.lastIndexOf(".");
+if(ATpos<1||(DOTpos-ATpos<2)){
+alert("Enter corrext email id");
+document.myform.email.focus();
+return false;
+}
+return true;
+}
+</script>
+<body>
+
+<h3>Registration Form</h3>
+
+<div>
+  <form name="myform" action="one.html"
+  onsubmit="return validateForm()" method="post">
+<form name="myform" action="one.html"
+  onsubmit="return validateEmail()" method="post">
+    <label for="fname">First Name</label>
+    <input type="text" id="uname" name="fname" placeholder="Your first name..">
+	<label for="mname">Middle Name</label>
+    <input type="text" id="uname" name="mname" placeholder="Your middle name..">
+<label for="lname">Last Name</label>
+    <input type="text" id="uname" name="lname" placeholder="Your last name..">
+   
+<br>
+
+
+    <label for="Type">UserType</label>
+    <select id="User" name="Type">
+      <option value="Staff">Staff</option>
+      <option value="Student">Student</option>
+      <option value="Officials">officials</option>
+    </select>
+  <input type="radio" name="gender" value="male" checked> Male<br>
+  <input type="radio" name="gender" value="female"> Female<br>
+  <input type="radio" name="gender" value="other"> Other<br><br>
+ Enter Birth Date:
+  <input type="date" name="bday">
+<br>
+ Enter E-mail:
+  <input type="email" name="email">
+<br>
+ Contact Details:
+  <input type="tel" name="Contact Details" maxlength="10" placeholder="Enter 10 Digit contact Number">
+
+
+   <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>

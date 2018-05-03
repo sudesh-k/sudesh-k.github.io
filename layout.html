@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 60px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 10px 10 5px 10;
+}
+
+img.avatar {
+    width:25%;
+    border-radius:25%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+
+div.container {
+    width:200%;
+    border: 2px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 200px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 442px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+</style>
+<script>
+function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+   <h1>Gift Gallery</h1>
+</header>
+  
+<nav>
+  <ul>
+      <form>
+  <div class="imgcontainer">
+    <img src="logo.jpg" alt="logo" width="400" height="40" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <br><label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="myInput"><br><br>
+<input type="checkbox" onclick="myFunction()">Show Password
+
+        
+    <br> <button type="submit">Login</button>
+    <button type="submit"><a href="index.html" style="text-decoration:none">Register</a></button>
+  
+  </div>
+
+
+</form>
+  
+  </ul>
+</nav>
+
+<article>
+ <h2>Welcome to our gift shop.....</h2> 
+</article>
+
+<footer>Gift Shop</footer>
+
+</div>
+
+</body>
+</html>
+

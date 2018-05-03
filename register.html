@@ -1,37 +1,6 @@
 <!DOCTYPE html>
 <html>
-<style>
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing:border-box;
-}
-
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: black;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
-div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 <head>
 <script>
 function validateForm() {
@@ -73,7 +42,7 @@ return true;
 
 <body style="background-color:powderblue;">
 
-<h2 align="center">Registration Form</h2>
+<h2 align="center">Register</h2>
 
 <div>
   <form name="regform" action="one.html"
@@ -96,17 +65,13 @@ return true;
 <br>
 
  
-    <label for="Type">UserType :</label>
-    <select style="color:blue;">
-      <option value="Staff">Staff</option>
-      <option value="Student">Student</option>
-      <option value="Officials">officials</option>
-    </select>
+    
 
 Gender : 
-  <input type="radio" name="gender" value="male" checked> Male<br>
-  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<input type="radio" name="gender" value="female"> Female<br>
-  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<input type="radio" name="gender" value="other"> Other<br><br>
+  <input type="radio" name="gender" value="male" checked> Male
+  &nbsp &nbsp &nbsp &nbsp<input type="radio" name="gender" value="female"> Female
+  &nbsp &nbsp &nbsp &nbsp<input type="radio" name="gender" value="other"> Other<br><br>
+</select>
 
 <label for="Type" color="Red">State :  </label>
     <select style="color:blue;">
@@ -139,16 +104,27 @@ Gender :
    </select>
 
 
- Enter Birth Date :
-  &nbsp <input type="date" name="bday" placeholder="Enter your date-of-birth">
-<br>
- Enter E-mail :
-  &nbsp &nbsp &nbsp &nbsp <input type="email" name="email" placeholder="Enter your email id">
-<br>
- Contact Details :
-  &nbsp &nbsp <input type="tel" name="Contact Details" pattern=".{5,}" maxlength="10" placeholder="Enter 10 Digit contact Number">
+   <label for="DOB"> Date-of-birth : </label> 
+    <input type="date" style="background-color: rgba(0, 255, 0, 0.3);" id="dob" name="dob" placeholder="Enter your birth date..">
 
+<br>
 
+  <label for="addr">Email : </label> <br>
+    <input type="text" style="background-color: rgba(0, 255, 0, 0.3);" id="email" name="email" placeholder="Enter your email..">
+
+<br><label for="uname">Username : </label> <br>
+    <input type="text" style="background-color: rgba(0, 255, 0, 0.3);" id="uname" name="uname" placeholder="Enter your username..">
+
+ <br>
+ <label for="pw">Password : </label> <br>
+    <input type="password" style="background-color: rgba(0, 255, 0, 0.3);" id="pw" name="pw" placeholder="Enter your password..">
+
+<br>
+ <label for="cpw">Confirm Password : </label> <br>
+    <input type="password" style="background-color: rgba(0, 255, 0, 0.3);" id="cpw" name="cpw" placeholder="Confirm your password..">
+
+ <br>
+   
    <input type="submit" style="background-color:powderblue;" value="Submit">
   </form>
 </div>
