@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Angular</title>
+<script src="angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myController">
+	Number 1:&nbsp;<input type="number" placeholder=0 ng-model="no1"><br><br>
+	Number 2:&nbsp;<input type="number" placeholder=0 ng-model="no2"><br><br>
+	Add<input type="radio" ng-model="opr" name="opr" value="+">
+	Sub<input  name="opr" ng-model="opr" value="-" type="radio">
+	Multiply<input ng-model="opr" name="opr" type="radio" value="*">
+	Divide<input name="opr" ng-model="opr" type="radio" value="/">
+	<br>{{no1}} {{opr}} {{no2}} = {{calculate(opr)}}
+	
+
+</div>
+
+<script>
+
+var app = angular.module("myApp", []);
+app.controller('myController',function($scope){
+	$scope.no1=0;
+	$scope.no2=0;
+	$scope.opr="+";
+	$scope.calculate=function(opr){
+		if(opr=='+')
+			{
+				
+				return parseFloat($scope.no1)+parseFloat($scope.no2);
+			}
+		else if(opr=='-')
+			{
+				
+				return parseFloat($scope.no1)-parseFloat($scope.no2);
+			}
+		else if(opr=='*')
+			{
+				
+				return parseFloat($scope.no1)*parseFloat($scope.no2);
+			}
+		if(opr=='/')
+			{
+				
+				if($scope.no2!='0')
+					return parseFloat($scope.no1)/parseFloat($scope.no2);
+				else
+					return "Exception";
+			}
+		return 0;
+	};
+
+});
+</script>
+</body>
+</html>
+
+

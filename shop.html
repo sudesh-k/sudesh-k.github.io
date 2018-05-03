@@ -1,0 +1,57 @@
+<html>
+<head>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("cart",[]);
+		app.controller("cartController",function($scope){
+			$scope.cart={
+				items:[{desc:'',qty:'',cost:''}]
+			};
+			$scope.addItem=function(){
+				$scope.cart.items.push({desc:'',qty:'',cost:''});
+			}
+			$scope.removeItem=function(index){
+				$scope.cart.items.splice(index,1);
+			}
+			$scope.total=function(){
+				var total=0;
+				angular.forEach($scope.cart.items,function(item){
+				total=total+item.qty*item.cost;
+					});
+				return total;
+			}
+			$scope.count=function(){
+				count=0;
+				angular.forEach($scope.cart.items,function(item){
+					if(item.qty*item.cost>0)
+						count++
+				});
+				return count;	
+			}
+		});
+		
+	</script>
+</head>
+<body ng-app="cart" ng-controller="cartController">
+	<table width="50%">
+		<tr>
+			<td>Item</td>
+			<td>Quantity</td>
+			<td>Cost</td>
+			<td>Total</td>
+			<td><input type="hidden"></td>
+		</tr>
+		<tr ng-repeat="item in cart.items">
+			<td><input type="text" ng-model="item.desc"></td>
+			<td><input type="number" min=0 ng-model="item.qty"></td>
+			<td><input type="number" min=0 ng-model="item.cost"></td>
+			<td>{{item.qty*item.cost | currency:'Rs'}}</td>
+			<td><a ng-click="removeItem($index)">Remove</a></td>
+		</tr>
+		
+	</table>
+	<h3>Total:{{total() | currency:'Rs'}}</h3>
+	<h3>Item Count:{{count()}} </h3>
+	<h3><a ng-click="addItem()">Add</a></h3>
+</body>
+</html>

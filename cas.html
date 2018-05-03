@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>
+		Calculator
+	</title>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module('myApp',[]);
+		app.controller('myController',function($scope){
+			$scope.num2=0;
+			$scope.num1=0;
+			$scope.opr="*";
+			$scope.calculate=function(opr){
+				if(opr=="+")
+					return $scope.num1+$scope.num2;
+				if(opr=="-")
+					return $scope.num1-$scope.num2;
+				if(opr=="*")
+					return $scope.num1*$scope.num2;
+				if(opr=="/")
+					if($scope.num2!=0)
+						return $scope.num1/$scope.num2;
+					else
+						return "Exception";
+			}
+		});
+	</script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+	<input type="number" ng-model="num1">
+	<input type="number" ng-model="num2"><br>
+	Add<input type="radio" ng-model="opr" value="+">
+	Sub<input type="radio" ng-model="opr" value="-">
+	Multiply<input type="radio" ng-model="opr" value="*">
+	Divide<input type="radio" ng-model="opr" value="/">
+	<h3>{{num1}}{{opr}}{{num2}}={{calculate(opr)}}</h3>
+</body>
+</html>

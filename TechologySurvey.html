@@ -1,0 +1,88 @@
+<html>
+<head>
+	<title>Technology</title>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("technology",[]);
+		app.controller("techController",function($scope){
+			$scope.tech=[{name:"C",likes:0,dislikes:0},{name:"C++",likes:0,dislikes:0},{name:"PHP",likes:0,dislikes:0}]
+			
+			
+			$scope.like=function(lang){
+				lang.likes++;
+			}
+			$scope.dislike=function(lang){
+				lang.dislikes++;
+			}
+			$scope.ratio=function(lang){
+				if(lang.dislikes!=0)
+					return lang.likes/lang.dislikes;
+				else
+					return 0;
+			}
+			$scope.addTech=function(){
+				if($scope.addTechnology==null || $scope.addTechnology=="")
+					{
+						alert("Empty Field");
+					}
+				else
+					{
+						$scope.tech.push({name:$scope.addTechnology,likes:0,dislikes:0});
+						$scope.addTechnology="";		
+					}
+			}
+			$scope.bestTech=function(){
+				best="";
+				var max=0;
+				angular.forEach($scope.tech,function(tech){
+				var value=tech.likes/tech.dislikes;
+				if(value>=max)
+				{
+					if(value>max){
+						max=value;
+						best=tech.name;
+						}
+					else
+					{
+						max=value;
+						best=best+"/"+tech.name;
+					}	
+				}
+				})
+				return best;
+			}
+		});
+	</script>
+</head>
+<body ng-app="technology" ng-controller="techController">
+	<table width="50%" align="center">
+		<tr>
+			<th>
+				Technology
+			</th>
+			<th>
+				Likes
+			</th>
+			<th>
+				Dislikes
+			</th>
+			<th width="15%">
+				Likes:Dislikes Ratio
+			</th>
+			<th>
+				
+			</th>
+		</tr>
+		<tr ng-repeat="lan in tech">
+			<td>{{lan.name}}</td>
+			<td>{{lan.likes}}</td>
+			<td>{{lan.dislikes}}</td>
+			<td>{{ratio(lan)}}</td>
+			<td><button ng-click="like(lan)">Like</button></td>
+			<td><button ng-click="dislike(lan)">Dislike</button></td>
+		</tr>
+		<tr><td>Best Technology:</td><td colspan="3">{{bestTech()}}</td></tr>
+		<tr><td><input type="text" ng-model="addTechnology"></td><td><button ng-click="addTech()">Add</button></td></tr>
+	</table>
+</body>
+</html>
